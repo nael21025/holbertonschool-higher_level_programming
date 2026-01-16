@@ -1,2 +1,5 @@
 #!/usr/bin/python3
-import this
+str1 = "Holberton"
+str2 = "School"
+str1 = str1 + " " + str2
+print(str1)
