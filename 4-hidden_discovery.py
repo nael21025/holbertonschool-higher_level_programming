@@ -5,7 +5,7 @@ import types
 if __name__ == "__main__":
     # Load the compiled module
     with open('/tmp/hidden_4.pyc', 'rb') as f:
-        f.read(16)  # Skip the header (magic, timestamp, size)
+        f.read(12)  # Skip the header (magic 4, mtime 4, size 4)
         code = marshal.load(f)
     
     # Create a module object
