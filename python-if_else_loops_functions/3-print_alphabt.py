@@ -1,2 +1,4 @@
 #!/usr/bin/python3
-print("".join("{}".format(chr(i)) for i in range(97, 123) if i not in (101, 113)), end="")
+for c in range(ord('a'), ord('z') + 1):
+    if c != ord('e') and c != ord('q'):
+        print("{}".format(chr(c)), end="")
