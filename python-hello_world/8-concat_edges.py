@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-str1 = "object-oriented programming "  # noqa: E501
-str2 = "with Python"
-str1 = str1[:-1]
-print(str1 + " " + str2)
+str = "Python is an interpreted, interactive, object-oriented programming\
+ language that combines remarkable power with very clear syntax"
+print(str[39:67] + str[107:112] + str[:6])
