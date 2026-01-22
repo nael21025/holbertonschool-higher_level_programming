@@ -7,14 +7,3 @@ def max_integer(my_list=[]):
         if n > m:
             m = n
     return m
-
-
-
-
-
-
-
-
-
-
-
