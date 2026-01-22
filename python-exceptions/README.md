@@ -1,62 +1,285 @@
 # Python - Exceptions
 
-This directory contains solutions for Holberton School's Python exceptions exercises. The lessons focus on:
+This directory contains solutions for Holberton School's Python exceptions exercises.
 
-- **Exception Handling**: try/except blocks to catch and handle errors gracefully
-- **Built-in Exceptions**: Understanding different types of exceptions (TypeError, ValueError, IndexError, ZeroDivisionError, etc.)
-- **Raising Exceptions**: Using `raise` to throw custom exceptions
-- **Finally Clause**: Code that executes regardless of whether an exception occurred
-- **Safe Programming**: Writing robust code that handles edge cases and errors
-
-## Requirements
-
-- **Language**: Python 3.8.5+
-- **Editor**: vi, vim, or emacs
-- **Style Guide**: pycodestyle 2.7.*
-- **Shebang**: `#!/usr/bin/python3` (first line of all files)
-- **Executable**: All files must be executable
-- **New Line**: All files must end with a newline
-
-## Exercises
+## Exercises Overview
 
 ### 0. Safe list printing
 **File**: `0-safe_print_list.py`
-- Print x elements of a list safely
-- Handle IndexError when x > list length
-- Returns the real number of elements printed
+- Print x elements of a list
+- Prototype: `def safe_print_list(my_list=[], x=0):`
+- my_list can contain any type
+- All elements printed on same line followed by newline
+- x can be bigger than list length
+- Returns real number of elements printed
+- No imports, no len()
 
-### 1. Safe printing of an integers list
+### 1. Safe printing of an integers list  
 **File**: `1-safe_print_integer.py`
 - Print an integer with "{:d}".format()
-- Returns True if value is an integer, False otherwise
-- Handle TypeError and ValueError
+- Prototype: `def safe_print_integer(value):`
+- Returns True if correctly printed, False otherwise
+- No imports, no type()
 
 ### 2. Print and count integers
 **File**: `2-safe_print_list_integers.py`
-- Print the first x elements of a list, only integers
-- Skip non-integer elements silently
-- Allow IndexError to occur if x > list length
-- Returns the real number of integers printed
+- Print first x elements, only integers
+- Prototype: `def safe_print_list_integers(my_list=[], x=0):`
+- Skip non-integers silently
+- x can be bigger than list length
+- If x > len: IndexError will occur (don't catch it)
+- Returns real number of integers printed
+- No imports, no len()
 
 ### 3. Integers division with debug
 **File**: `3-safe_print_division.py`
 - Divide 2 integers safely
-- Print result in finally clause: "Inside result: ..."
-- Returns the division result, otherwise None
+- Prototype: `def safe_print_division(a, b):`
+- Print "Inside result: ..." in finally section
+- Returns division result or None
+- Must use try/except/finally
 
 ### 4. Divide a list
 **File**: `4-list_division.py`
 - Divide element by element 2 lists
-- Handle TypeError ("wrong type"), ZeroDivisionError ("division by 0"), IndexError ("out of range")
-- Returns a new list with division results (0 for errors)
+- Prototype: `def list_division(my_list_1, my_list_2, list_length):`
+- Returns new list (length = list_length) with divisions
+- Error result = 0
+- Messages:
+  - TypeError: "wrong type"
+  - ZeroDivisionError: "division by 0"
+  - IndexError: "out of range"
 
 ### 5. Raise exception
 **File**: `5-raise_exception.py`
-- Raise a TypeError exception
+- Raise a TypeError
+- Prototype: `def raise_exception():`
 
 ### 6. Raise a message
 **File**: `6-raise_exception_msg.py`
-- Raise a NameError with a custom message
+- Raise a NameError with message
+- Prototype: `def raise_exception_msg(message=""):`
+
+## Requirements
+
+- **Language**: Python 3.8.5+
+- **Style**: pycodestyle 2.7.*
+- **Shebang**: `#!/usr/bin/python3`
+- **Newline**: All files end with newline
+- **Executable**: All files must be executable
+- **Imports**: No imports allowed (except where noted)
+- **Docstrings**: Module docstrings required
+
+## Python Exceptions - Complete Documentation
+
+### 8. Errors and Exceptions
+
+There are two distinguishable kinds of errors: syntax errors and exceptions.
+
+#### 8.1. Syntax Errors
+
+Syntax errors, also known as parsing errors, are errors detected before the program runs:
+
+```python
+while True print('Hello world')
+  File "<stdin>", line 1
+    while True print('Hello world')
+               ^^^^^
+SyntaxError: invalid syntax
+```
+
+#### 8.2. Exceptions
+
+Errors detected during execution are called exceptions. They are not unconditionally fatal:
+
+```python
+10 * (1/0)
+ZeroDivisionError: division by zero
+
+4 + spam*3
+NameError: name 'spam' is not defined
+
+'2' + 2
+TypeError: can only concatenate str (not "int") to str
+```
+
+Common exception types:
+- **ZeroDivisionError**: Division by zero
+- **NameError**: Undefined variable
+- **TypeError**: Wrong type in operation
+- **ValueError**: Wrong value
+- **IndexError**: Index out of range
+- **KeyError**: Key not found in dict
+- **FileNotFoundError**: File doesn't exist
+
+#### 8.3. Handling Exceptions
+
+Use try/except to handle exceptions:
+
+```python
+try:
+    x = int(input("Please enter a number: "))
+except ValueError:
+    print("That was not a valid number!")
+```
+
+How it works:
+1. Try clause executes first
+2. If no exception: except is skipped
+3. If exception occurs and type matches: except clause runs
+4. If exception doesn't match: propagates to outer try statements
+
+Multiple except clauses:
+
+```python
+try:
+    risky_operation()
+except ZeroDivisionError:
+    print("Can't divide by zero!")
+except TypeError:
+    print("Wrong type!")
+except IndexError:
+    print("Index out of range!")
+```
+
+Catch multiple exceptions:
+
+```python
+except (RuntimeError, TypeError, NameError):
+    pass
+```
+
+#### 8.4. Raising Exceptions
+
+Use `raise` to throw exceptions:
+
+```python
+raise NameError('HiThere')
+```
+
+Re-raise an exception:
+
+```python
+try:
+    risky_operation()
+except:
+    print("Operation failed")
+    raise  # Re-raise the same exception
+```
+
+#### 8.5. Exception Chaining
+
+Indicate cause with `from`:
+
+```python
+try:
+    open("database.sqlite")
+except OSError:
+    raise RuntimeError("unable to handle error")
+```
+
+Disable chaining with `from None`:
+
+```python
+try:
+    open('database.sqlite')
+except OSError:
+    raise RuntimeError from None
+```
+
+#### 8.6. User-defined Exceptions
+
+Create custom exceptions:
+
+```python
+class MyError(Exception):
+    pass
+
+raise MyError("Custom error message")
+```
+
+#### 8.7. Defining Clean-up Actions
+
+Use `finally` for cleanup code:
+
+```python
+try:
+    risky_operation()
+except SomeException:
+    handle_error()
+finally:
+    cleanup()  # Always executes
+```
+
+Finally runs whether or not exception occurred:
+
+```python
+def divide(x, y):
+    try:
+        result = x / y
+    except ZeroDivisionError:
+        print("division by zero!")
+    else:
+        print("result is", result)
+    finally:
+        print("executing finally clause")
+
+divide(2, 1)
+# result is 2.0
+# executing finally clause
+
+divide(2, 0)
+# division by zero!
+# executing finally clause
+```
+
+#### 8.8. Predefined Clean-up Actions
+
+Use `with` statement for automatic cleanup:
+
+```python
+with open("myfile.txt") as f:
+    for line in f:
+        print(line, end="")
+# File automatically closed
+```
+
+#### 8.9. Exception Groups
+
+Raise multiple exceptions together:
+
+```python
+excs = []
+for test in tests:
+    try:
+        test.run()
+    except Exception as e:
+        excs.append(e)
+
+if excs:
+    raise ExceptionGroup("Test Failures", excs)
+```
+
+#### 8.10. Enriching Exceptions with Notes
+
+Add context to exceptions:
+
+```python
+try:
+    raise TypeError('bad type')
+except Exception as e:
+    e.add_note('Add some information')
+    e.add_note('Add some more information')
+    raise
+```
+
+## Testing
+
+To test each exercise, use the corresponding main file (e.g., `0-main.py`) in the same directory.
+
+## Author
+
+**Holberton School** - Higher Level Programming Track
 
 ## Python Exceptions Documentation
 
