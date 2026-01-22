@@ -1,11 +1,3 @@
-﻿#!/usr/bin/python3
-"""Raise exception with message function."""
-
-
+#!/usr/bin/python3
 def raise_exception_msg(message=""):
-    """Raise a NameError with a message.
-
-    Args:
-        message: Message for the exception
-    """
     raise NameError(message)
