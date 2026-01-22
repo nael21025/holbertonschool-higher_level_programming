@@ -8,10 +8,10 @@ def max_integer(list=[]):
     """
     Function to find and return the max integer in a list of integers.
     If the list is empty, returns None.
-    
+
     Args:
         list: A list of integers
-    
+
     Returns:
         The maximum integer in the list, or None if empty
     """
