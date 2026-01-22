@@ -3,7 +3,7 @@ import importlib.util
 
 if __name__ == "__main__":
     # Load the compiled module
-    spec = importlib.util.spec_from_file_location("hidden_4", "/tmp/hidden_4.pyc")
+    spec = importlib.util.spec_from_file_location("hidden_4", "./hidden_4.pyc")
     if spec and spec.loader:
         module = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(module)
