@@ -1,7 +1,7 @@
 #!/usr/bin/python3
-def divisible_by_2(my_list=None):
+def divisible_by_2(my_list=[]):
     if my_list is None:
-        my_list = []
+        return []
     result = []
     for n in my_list:
         result.append(n % 2 == 0)
