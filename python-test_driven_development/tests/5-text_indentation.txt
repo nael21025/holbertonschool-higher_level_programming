@@ -1,0 +1,136 @@
+The ``text_indentation`` module
+=================================
+
+Using ``text_indentation``
+--------------------------
+
+Import the function:
+
+    >>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Test basic text with period:
+
+    >>> text_indentation("Hello.")
+    Hello.
+    <BLANKLINE>
+
+Test with multiple sentences:
+
+    >>> text_indentation("Hello. How are you? I am fine.")
+    Hello.
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+    I am fine.
+    <BLANKLINE>
+
+Test with all special characters:
+
+    >>> text_indentation("Question? Answer: Done.")
+    Question?
+    <BLANKLINE>
+    Answer:
+    <BLANKLINE>
+    Done.
+    <BLANKLINE>
+
+Test with spaces after special characters:
+
+    >>> text_indentation("Hello.    How are you?")
+    Hello.
+    <BLANKLINE>
+    How are you?
+    <BLANKLINE>
+
+Test with no special characters:
+
+    >>> text_indentation("Hello World")
+    Hello World
+
+Test with empty string:
+
+    >>> text_indentation("")
+
+Test with only spaces:
+
+    >>> text_indentation("   ")
+       
+
+Test text is not a string:
+
+    >>> text_indentation(123)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+    >>> text_indentation(None)
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+    >>> text_indentation(["Hello"])
+    Traceback (most recent call last):
+    ...
+    TypeError: text must be a string
+
+Test missing argument:
+
+    >>> text_indentation()
+    Traceback (most recent call last):
+    ...
+    TypeError: text_indentation() missing 1 required positional argument: 'text'
+
+Test with newlines in text:
+
+    >>> text_indentation("Hello.\nWorld")
+    Hello.
+    <BLANKLINE>
+    World
+
+Test with tab character:
+
+    >>> text_indentation("Hello.\tWorld")
+    Hello.
+    <BLANKLINE>
+    World
+
+Test long text:
+
+    >>> text_indentation("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere?")
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+    <BLANKLINE>
+    Quonam modo?
+    <BLANKLINE>
+    Utrum igitur tibi litteram videor an totas paginas commovere?
+    <BLANKLINE>
+
+Test consecutive special characters:
+
+    >>> text_indentation("What?. Is this:. Okay?")
+    What?
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    Is this:
+    <BLANKLINE>
+    .
+    <BLANKLINE>
+    Okay?
+    <BLANKLINE>
+
+Test special characters at beginning:
+
+    >>> text_indentation(".Hello")
+    .
+    <BLANKLINE>
+    Hello
+
+Test with numbers and special chars:
+
+    >>> text_indentation("Number 1. Number 2: Number 3?")
+    Number 1.
+    <BLANKLINE>
+    Number 2:
+    <BLANKLINE>
+    Number 3?
+    <BLANKLINE>
