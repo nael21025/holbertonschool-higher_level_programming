@@ -10,19 +10,19 @@ class BaseGeometry:
     """
 
     def area(self):
-        """Calculate the area of the geometry shape.
+        """Calculate area of the geometry shape.
 
         Raises:
-            Exception: This method must be implemented by subclasses
+            Exception: This method must be overridden in subclass
         """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """Validate that a value is a positive integer.
+        """Validate value is a positive integer.
 
         Args:
-            name: The name of the parameter being validated
-            value: The value to validate
+            name: Name of the parameter
+            value: Value to validate
 
         Raises:
             TypeError: If value is not an integer
