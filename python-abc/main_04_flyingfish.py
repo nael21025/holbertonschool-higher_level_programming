@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 from task_04_flyingfish import Fish, FlyingFish
 
 flying_fish = FlyingFish()

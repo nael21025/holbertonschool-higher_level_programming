@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 from task_01_duck_typing import Circle, Rectangle, shape_info
 
 circle = Circle(radius=5)

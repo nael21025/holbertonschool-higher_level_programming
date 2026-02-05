@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 from task_03_countediterator import CountedIterator
 
 data = [1, 2, 3, 4]
