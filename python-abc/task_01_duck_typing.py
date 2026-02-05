@@ -37,5 +37,11 @@ class Rectangle(Shape):
 
 
 def shape_info(shape):
-    print(f"Area: {shape.area()}")
-    print(f"Perimeter: {shape.perimeter()}")
+    area = shape.area() if callable(getattr(shape, "area", None)) else shape.area
+    perimeter = (
+        shape.perimeter()
+        if callable(getattr(shape, "perimeter", None))
+        else shape.perimeter
+    )
+    print(f"Area: {area}")
+    print(f"Perimeter: {perimeter}")
