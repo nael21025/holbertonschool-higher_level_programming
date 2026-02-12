@@ -6,7 +6,7 @@ class Student:
     """Represents a student with first name, last name, and age."""
     
     def __init__(self, first_name, last_name, age):
-        """Initializes a new Student instance."""
+        """Initialize student instance with first_name, last_name and age."""
         self.first_name = first_name
         self.last_name = last_name
         self.age = age
@@ -18,6 +18,6 @@ class Student:
         return self.__dict__
     
     def reload_from_json(self, json):
-        """Replaces all attributes of the Student instance."""
+        """Replaces all Student attributes using dictionary key/value pairs."""
         for key, value in json.items():
             setattr(self, key, value)
