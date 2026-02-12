@@ -12,10 +12,7 @@ class Student:
         self.age = age
     
     def to_json(self, attrs=None):
-        """Retrieves a dictionary representation of a Student instance.
-        If attrs is a list of strings, only attributes in this list are retrieved.
-        Otherwise, all attributes are retrieved.
-        """
+        """Retrieves a dictionary representation of a Student instance."""
         if isinstance(attrs, list):
             return {k: v for k, v in self.__dict__.items() if k in attrs}
         return self.__dict__
