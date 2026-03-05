@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Filters states by user input"""
+"""Script that takes in arguments and displays all values in the
+states table of hbtn_0e_0_usa where the name matches the argument.
+Uses format string to build the SQL query with user input.
+Results are sorted in ascending order by state id."""
 import MySQLdb
 import sys
 
@@ -14,11 +17,13 @@ if __name__ == "__main__":
     )
     cursor = db.cursor()
     name = sys.argv[4]
-    query = "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(name)
-    cursor.execute(query)
-    
+    cursor.execute(
+        "SELECT * FROM states WHERE name = '{}' ORDER BY id ASC".format(name)
+    )
+
     for row in cursor.fetchall():
         print(row)
-    
+
     cursor.close()
     db.close()
+

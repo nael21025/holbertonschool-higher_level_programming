@@ -1,5 +1,8 @@
 #!/usr/bin/python3
-"""Prints the State object with the given name"""
+"""Script that prints the State object with the name matching the
+argument passed to the script from the database hbtn_0e_6_usa.
+Displays the state id if found, otherwise displays Not found.
+Uses SQLAlchemy filter_by method to safely search by name."""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine
@@ -13,15 +16,16 @@ if __name__ == "__main__":
         ),
         pool_pre_ping=True
     )
-    
+
     Session = sessionmaker(bind=engine)
     session = Session()
-    
+
     state = session.query(State).filter_by(name=sys.argv[4]).first()
-    
+
     if state:
         print(state.id)
     else:
         print("Not found")
-    
+
     session.close()
+

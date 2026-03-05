@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-"""Lists all State objects from the database"""
+"""Script that lists all State objects from the database hbtn_0e_6_usa
+using SQLAlchemy ORM. Connects to the database, creates a session,
+and displays all states ordered by id in ascending order as id: name."""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine
@@ -13,11 +15,12 @@ if __name__ == "__main__":
         ),
         pool_pre_ping=True
     )
-    
+
     Session = sessionmaker(bind=engine)
     session = Session()
-    
+
     for state in session.query(State).order_by(State.id).all():
         print("{}: {}".format(state.id, state.name))
-    
+
     session.close()
+
