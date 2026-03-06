@@ -1,27 +1,35 @@
-
 #!/usr/bin/python3
-"""Script that lists states matching a user input from a database."""
-import MySQLdb
+"""Displays all values in the states table where name matches the argument."""
 import sys
+import MySQLdb
 
 
 if __name__ == "__main__":
-    conn = MySQLdb.connect(
+
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+    state_name = sys.argv[4]
+
+    db = MySQLdb.connect(
         host="localhost",
-        port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3],
-        charset="utf8"
+        user=username,
+        passwd=password,
+        db=database,
+        port=3306
     )
-    cur = conn.cursor()
-    cur.execute(
-        "SELECT * FROM states WHERE BINARY name = '{}' ORDER BY id ASC".format(
-            sys.argv[4]
-        )
+
+    cursor = db.cursor()
+
+    query = (
+        "SELECT * FROM states WHERE name LIKE BINARY '{}' "
+        "ORDER BY states.id ASC".format(state_name)
     )
-    rows = cur.fetchall()
-    for row in rows:
-        print(row)
-    cur.close()
-    conn.close()
+    cursor.execute(query)
+    states = cursor.fetchall()
+
+    for state in states:
+        print(state)
+
+    cursor.close()
+    db.close()
