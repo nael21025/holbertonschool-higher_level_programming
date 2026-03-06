@@ -1,9 +1,17 @@
 #!/usr/bin/python3
-"""This module lists all cities of a given state from the database hbtn_0e_4_usa."""
+"""
+5-filter_cities.py
+Script that takes in the name of a state as an argument,
+And lists all cities of that state.
+"""
 import sys
 import MySQLdb
 
 if __name__ == "__main__":
+    """
+    Main function to connect to the database,
+    And retrieve all cities from given state.
+    """
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
@@ -18,6 +26,7 @@ if __name__ == "__main__":
     )
 
     cursor = db.cursor()
+
     query = (
         "SELECT cities.name FROM cities "
         "JOIN states ON cities.state_id = states.id "
