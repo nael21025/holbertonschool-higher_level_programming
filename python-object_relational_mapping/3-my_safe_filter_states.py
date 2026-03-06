@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Script that displays states matching the name safely."""
-import pymysql as MySQLdb
+import MySQLdb
 import sys
 
 

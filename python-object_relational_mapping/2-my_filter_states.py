@@ -1,7 +1,7 @@
 
 #!/usr/bin/python3
 """Script that lists states matching a user input from a database."""
-import pymysql as MySQLdb
+import MySQLdb
 import sys
 
 
