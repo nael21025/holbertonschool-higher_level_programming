@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""Creates the State table in database hbtn_0e_6_usa using SQLAlchemy ORM."""
+"""Script that creates the State table in the hbtn_0e_6_usa database using the SQLAlchemy ORM metadata system."""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine

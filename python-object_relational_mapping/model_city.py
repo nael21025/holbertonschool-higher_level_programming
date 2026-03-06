@@ -1,4 +1,14 @@
 #!/usr/bin/python3
+"""
+model_city.py
+Defines the City class which maps to the cities table in the database.
+"""
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
+from model_state import Base, State
+
+# ...existing code...
+#!/usr/bin/python3
 """Module that defines the City class for SQLAlchemy ORM model.
 The City class is linked to the MySQL table cities and has a
 foreign key relationship to the State class through state_id."""
