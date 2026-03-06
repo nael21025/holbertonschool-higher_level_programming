@@ -1,38 +1,9 @@
 #!/usr/bin/python3
-"""
-11-model_state_insert.py
-Script that adds the State object "Louisiana" to the database hbtn_0e_6_usa.
-"""
+"""Script that adds a new State object to a database."""
 import sys
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import Session
 from model_state import Base, State
-
-if __name__ == "__main__":
-    """Main function."""
-    engine = create_engine(
-        'mysql+mysqldb://{}:{}@localhost/{}'.format(
-            sys.argv[1], sys.argv[2], sys.argv[3]), pool_pre_ping=True
-    )
-    Base.metadata.create_all(engine)
-
-    Session = sessionmaker(bind=engine)
-    session = Session()
-
-    new_state = State(name="Louisiana")
-
-    session.add(new_state)
-    session.commit()
-
-    print(new_state.id)
-
-    session.close()
-#!/usr/bin/python3
-"""Script that adds a new State object named Louisiana to the hbtn_0e_6_usa database and prints the new state id."""
-import sys
-from model_state import Base, State
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 
 
 if __name__ == "__main__":
@@ -42,15 +13,10 @@ if __name__ == "__main__":
         ),
         pool_pre_ping=True
     )
-
-    Session = sessionmaker(bind=engine)
-    session = Session()
-
+    Base.metadata.create_all(engine)
+    session = Session(engine)
     new_state = State(name="Louisiana")
     session.add(new_state)
     session.commit()
-
-    print(new_state.id)
-
+    print("{}".format(new_state.id))
     session.close()
-

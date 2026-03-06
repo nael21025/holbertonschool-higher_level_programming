@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Script that lists states starting with N from a database."""
-import MySQLdb
+import pymysql as MySQLdb
 import sys
 
 
