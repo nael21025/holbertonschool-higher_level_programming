@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-"""Script that lists all cities of a given state using MySQL database."""
+"""This module lists all cities of a given state from the database hbtn_0e_4_usa."""
 import sys
 import MySQLdb
-
 
 if __name__ == "__main__":
     username = sys.argv[1]
@@ -19,7 +18,6 @@ if __name__ == "__main__":
     )
 
     cursor = db.cursor()
-
     query = (
         "SELECT cities.name FROM cities "
         "JOIN states ON cities.state_id = states.id "
