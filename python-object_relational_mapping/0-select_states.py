@@ -10,7 +10,8 @@ import sys
 
 if __name__ == "__main__":
     """
-    Main function that executes the database
+    Main function:
+    that executes the database
     connection and retrieval of states.
     """
 
@@ -34,4 +35,3 @@ if __name__ == "__main__":
 
     cursor.close()
     db.close()
-
