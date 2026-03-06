@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Script that lists all states from the database hbtn_0e_0_usa
-using MySQLdb module to fetch and display all state records
-Ordered by state id in ascending order."""
+"""Retrieves and displays all state records from hbtn_0e_0_usa database ordered by id."""
 import MySQLdb
 import sys
 

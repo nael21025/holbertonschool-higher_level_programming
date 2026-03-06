@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Script that lists all states with a name starting with the
-letter N from the database hbtn_0e_0_usa using MySQLdb module.
-Results are sorted in ascending order by state id."""
+"""Retrieves and displays states with names starting with N from hbtn_0e_0_usa database."""
 import MySQLdb
 import sys
 

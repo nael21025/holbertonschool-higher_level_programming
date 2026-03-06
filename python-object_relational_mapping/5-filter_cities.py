@@ -1,9 +1,5 @@
 #!/usr/bin/python3
-"""Script that takes a state name as argument and lists all cities
-of that state from the database hbtn_0e_4_usa using MySQLdb.
-Safe from SQL injection through parameterized queries.
-Results are sorted in ascending order by cities id.
-Displays cities as comma-separated values on a single line."""
+"""Displays all cities of a specified state from hbtn_0e_4_usa database safely."""
 import MySQLdb
 import sys
 

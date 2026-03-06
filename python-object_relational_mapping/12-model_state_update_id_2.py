@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Script that changes the name of the State object with id=2 from
-the database hbtn_0e_6_usa to New Mexico using SQLAlchemy ORM.
-Retrieves the state, modifies its name attribute, and commits changes."""
+"""Changes the name of State id 2 to New Mexico in hbtn_0e_6_usa database."""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine

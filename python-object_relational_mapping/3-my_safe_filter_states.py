@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""Script that takes in arguments and displays all values in the
-states table where the name matches the argument, safe from SQL injection.
-Uses parameterized queries with %s placeholder to prevent SQL injection.
-Results are sorted in ascending order by state id."""
+"""Safely filters states by name from hbtn_0e_0_usa database preventing SQL injection."""
 import MySQLdb
 import sys
 

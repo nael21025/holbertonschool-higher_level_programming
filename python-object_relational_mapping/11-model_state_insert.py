@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Script that adds a new State object named Louisiana to the database
-hbtn_0e_6_usa using SQLAlchemy ORM. Creates a new instance, adds it to
-the session, commits the transaction, and prints the new state id."""
+"""Adds a new State named Louisiana to hbtn_0e_6_usa database and prints new id."""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine

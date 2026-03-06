@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""Script that prints the State object with the name matching the
-argument passed to the script from the database hbtn_0e_6_usa.
-Displays the state id if found, otherwise displays Not found.
-Uses SQLAlchemy filter_by method to safely search by name."""
+"""Prints the id of a State object by name from hbtn_0e_6_usa database."""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine

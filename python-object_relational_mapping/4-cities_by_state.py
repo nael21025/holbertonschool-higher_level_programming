@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""Script that lists all cities from the database hbtn_0e_4_usa
-using only one execute() call to join cities with their corresponding states.
-Results are sorted in ascending order by cities id.
-Displays each city as: (id, name, state_name)."""
+"""Displays all cities from hbtn_0e_4_usa database with their corresponding states."""
 import MySQLdb
 import sys
 

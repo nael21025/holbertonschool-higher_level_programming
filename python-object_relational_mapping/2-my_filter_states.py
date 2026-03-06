@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""Script that takes in arguments and displays all values in the
-states table of hbtn_0e_0_usa where the name matches the argument.
-Uses format string to build the SQL query with user input.
-Results are sorted in ascending order by state id."""
+"""Filters and displays states by name from hbtn_0e_0_usa using parameterized queries."""
 import MySQLdb
 import sys
 

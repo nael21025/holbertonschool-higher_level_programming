@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Script that lists all State objects from the database hbtn_0e_6_usa
-using SQLAlchemy ORM. Connects to the database, creates a session,
-and displays all states ordered by id in ascending order as id: name."""
+"""Lists all State objects from hbtn_0e_6_usa database ordered by id."""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine

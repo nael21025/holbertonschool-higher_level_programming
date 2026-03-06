@@ -1,8 +1,5 @@
 #!/usr/bin/python3
-"""Script that displays all cities from the database hbtn_0e_14_usa
-with their corresponding state using SQLAlchemy ORM.
-Performs a join between City and State tables and displays each as
-state_name: (city_id) city_name ordered by city id."""
+"""Displays all cities from hbtn_0e_14_usa database with their state names."""
 import sys
 from model_state import Base, State
 from model_city import City

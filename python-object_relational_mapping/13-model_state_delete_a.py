@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Script that deletes all State objects with a name containing the
-letter 'a' from the database hbtn_0e_6_usa using SQLAlchemy ORM.
-Queries for states matching the filter and deletes them from session."""
+"""Deletes all State objects containing the letter a from hbtn_0e_6_usa database."""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine

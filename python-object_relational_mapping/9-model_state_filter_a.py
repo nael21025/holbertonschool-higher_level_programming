@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Script that lists all State objects that contain the letter 'a'
-from the database hbtn_0e_6_usa using SQLAlchemy ORM and the like()
-method to filter. Results are sorted in ascending order by state id."""
+"""Lists State objects containing the letter a from hbtn_0e_6_usa database."""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine

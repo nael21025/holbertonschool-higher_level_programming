@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Script that creates the State table in the database hbtn_0e_6_usa
-using SQLAlchemy ORM. Creates all metadata tables defined in the models
-through the Base.metadata.create_all() method with the database engine."""
+"""Creates the State table in database hbtn_0e_6_usa using SQLAlchemy ORM."""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine

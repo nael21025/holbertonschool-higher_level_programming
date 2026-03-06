@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""Script that prints the first State object from the database
-hbtn_0e_6_usa using SQLAlchemy ORM. If the states table is empty,
-prints Nothing followed by a new line instead of an error."""
+"""Prints the first State object from hbtn_0e_6_usa database or Nothing if empty."""
 import sys
 from model_state import Base, State
 from sqlalchemy import create_engine
