@@ -1,7 +1,7 @@
 #!/usr/bin/node
 
 function factorial (n) {
-  if (isNaN(n)) {
+  if (Number.isNaN(n)) {
     return 1;
   }
   n = parseInt(n);
